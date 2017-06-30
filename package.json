@@ -1,0 +1,38 @@
+{
+  "name": "express-25",
+  "version": "1.0.0",
+  "description": "Web application with Node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests tests/**/*.js",
+    "dev": "./node_modules/.bin/nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MonikaTzenova/Express-25.git"
+  },
+  "author": "Monika Tzenova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MonikaTzenova/Express-25/issues"
+  },
+  "homepage": "https://github.com/MonikaTzenova/Express-25#readme",
+  "devDependencies": {
+    "eslint": "^4.1.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "chai": "^4.0.2",
+    "chai-http": "^3.0.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "mocha": "^3.4.2",
+    "mongodb": "^2.2.29",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.0-rc.2"
+  }
+}
