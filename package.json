@@ -4,6 +4,7 @@
   "description": "Web application with Node.js",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "./node_modules/.bin/mocha tests tests/**/*.js",
     "dev": "./node_modules/.bin/nodemon app.js"
   },
