@@ -1,0 +1,17 @@
+{
+  "name": "express-25",
+  "description": "Web application with Node.js",
+  "main": "app.js",
+  "authors": [
+    "Monika Tzenova"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/MonikaTzenova/Express-25",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
