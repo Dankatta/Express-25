@@ -1,8 +1,15 @@
 const { MongoClient } = require('mongodb');
 
-const connectionString = 'mongodb://localhost:/express25';
-const connect = (connectionString) => {
-    return MongoClient.connect(connectionString);
-};
+const connectionString = 'mongodb://localhost:27017/express25';
+module.exports = function(connect) {
+    return new Promise((resolve, reject) => {
+        MongoClient.connect(connectionString)
+            .then((db) => {
+                db.close();
 
-module.exports = { connect };
+            })
+            .then((resolve) => {
+
+            });
+    });
+}
