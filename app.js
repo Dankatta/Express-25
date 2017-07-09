@@ -1,15 +1,11 @@
-let  express = require('express');
+const constants = require('./common/constants');
+const validation = require('./common/validation');
+const models = require('./models')(constants, validation);
+const mongodb = require('./data/mongodb')(constants);
+const data = require('./data')(mongodb, models);
+const app = require('./config/app')(data);
 
-let  env = process.env.NODE_ENV || 'development';
+require('./routers')(app, data, models, validation);
 
-let  app = express();
-let  config = require('./server/config/config')[env];
-
-require('./server/config/express')(app, config);
-require('./server/config/mongodb')();
-//const { connect } = require('./db');
-require('./server/config/passport')();
-//require('./server/routes')(app);
-
-app.listen(config.port);
-console.log("Server running on port: " + config.port);
+app.listen(constants.PORT,
+    () => console.log(`Server running at :${constants.PORT}`));
