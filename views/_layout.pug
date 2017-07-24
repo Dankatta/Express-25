@@ -1,76 +1,20 @@
-doctype html
 html(lang="bg")
     head
         meta(charset="UTF-8")
         block page-title
         link(rel="stylesheet", href="./libs/bootstrap/dist/css/bootstrap.min.css")
-        link(rel="stylesheet", href="./static/styles/style.css")  
+        link(rel="stylesheet", href="./static/styles/main.css")  
         link(rel="shortcut icon" type="image/x-icon" href="./static/images/favicon.png")             
     body
-        nav(class="navbar navbar-default")
-            .container-fluid
-                .navbar-header
-                    button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false")
-                        span(class="sr-only") Включи навигация
-                        span(class="icon-bar")
-                        span(class="icon-bar")
-                        span(class="icon-bar")
-                    a(class="navbar-brand" href="./") MediLink+
-
-                div(class="collapse navbar-collapse" id="bs-example-navbar-collapse-1")
-                    ul(class="nav navbar-nav")
-
-                        //- if user is doctor
-                        if true
-                            li(class="dropdown")
-                                a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown) Лекар
-                                    span(class="caret")
-                                ul(class="dropdown-menu")
-                                    li
-                                        a(href="./addPatient") Добави пациент
-                                    li
-                                        a(href="#") Добави рецепта
-                                    li
-                                        a(href="#") Добави резултат
-                                    li
-                                        a(href="#") Моето приемно време
-                                    li
-                                        a(href="#") Моят график                         
-
-                        //- if user is patient
-                        if true
-                            li(class="dropdown")
-                                a(href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown) Пациент
-                                    span(class="caret")
-                                ul(class="dropdown-menu")
-                                    li
-                                        a(href="./reservation") Резервация за преглед
-                                    li
-                                        a(href="#") Моите резултати
-                        //- 
-
-                        li
-                            a(href="./personal-doctors") Лични лекари
-                        li
-                            a(href="./doctors") Специалисти
-                        li
-                            a(href="./reciepes-search") Справка рецепти
-                        li
-                            a(href="./about") За системата
-                    ul(class="nav navbar-nav navbar-right")
-                        if !result.user
-                            li
-                                a(href="./login") Вход
-                            li
-                                a(href="./register") Регистрация
-                        else
-                            li
-                                a(href="./profile") Здравей, !{result.user}
-                            li
-                                a(href="./logout") Изход        
-                 
-        script(src="./libs/jquery/dist/jquery.min.js")
-        script(src="./libs/bootstrap/dist/js/bootstrap.min.js")
-
-        .content.container      
-            block content   
+        nav
+        ul
+            li
+            a(href='') Home
+            li
+            a(href='') Events
+            li#last
+            a(href='') Gallery
+            li(style='float:right')
+            a(href='') Log In
+            li(style='float:right')
+            a(href='') Register
