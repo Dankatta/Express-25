@@ -1,0 +1,37 @@
+mixin competitions-list(competitions)
+    section.col-xs-12.col-sm-6.col-md-12
+    each competition in competitions
+        article.search-result.row
+          .col-xs-12.col-sm-12.col-md-3
+            a.thumbnail(href='#', title='Lorem ipsum')
+              //- img(src='/static/imgs/competitions-imgs/'+competition.image, alt='Competition image')
+              img(src='/static/imgs/competition-images/'+ competition.image, alt='Competition image')
+          .col-xs-12.col-sm-12.col-md-2.right-border
+            ul.meta-search
+              li
+                i.glyphicon.glyphicon-calendar
+                span #{competition.startDate}
+              li
+                i.glyphicon.glyphicon-tags
+                span 
+                  //- href='/categories/'+competition.category)
+                  a.category-title #{competition.category}
+              li
+                i.glyphicon.glyphicon-user
+                span By 
+                    a(href='/users/' + competition.organizator) #{competition.organizator}
+          .col-xs-12.col-sm-12.col-md-7.excerpet
+            h2
+              a(href='/competitions/'+competition._id) #{competition.name}
+            p  #{competition.place}
+            if competition.passed
+                span.label.label-warning #{competition.passed}
+            else
+                span.label.label-success.active-comp Active
+            br
+            span.plus
+              a(href='/competitions/' + competition._id, title='Lorem ipsum') Go to page 
+          span.clearfix.borda
+block scripts
+
+    script(src="/static/js/load-category.min.js")

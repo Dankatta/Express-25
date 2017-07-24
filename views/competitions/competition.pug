@@ -1,0 +1,77 @@
+extends ../_layout
+
+block content
+    .wrapper
+        .header.header-filter(style="background-image: url('/static/imgs/nature-wallpapers26.jpg');")
+        .main.main-raised(style="margin-top: -500px;")
+            .profile-content
+                .container
+                    div.competition-info(id="info" data-id=result.competition._id )
+                    .row
+                        .col-md-4
+                            .competition-map(id="map")
+                            img.img-rounded.img-responsive(src='/static/imgs/competition-images/'+result.competition.image,width="300px", height="auto;", alt='Competition image')
+                            block like
+                        .col-md-6
+                            .col-md-4
+                            if result.competition.passed
+                                span.label.label-warning #{result.competition.passed}
+                            else
+                                span.label.label-success.active-comp Active
+                            .col-md-4
+                            block joining 
+                            h2.title #{result.competition.name}
+                            h2 Place: #{result.competition.place}
+                            h3 Organized by:
+                                a(href="/users/" +result.competition.organizator)  #{result.competition.organizator}
+                            h3 Category: 
+                                a.category-title #{result.competition.category}
+                            h3 Level: #{result.competition.level}
+                            h3 Points: 
+                                span(id="points") #{result.competition.points}
+                            br
+                            p.lead #{result.competition.description}
+                            span Start: #{result.competition.startDate}]
+                            br
+                            span End: #{result.competition.endDate}
+                            span.hidden(id='latitude') #{result.competition.location.latitude}
+                            span.hidden(id='longitude') #{result.competition.location.longitude}
+                        .col-md-8
+                            h2.title Joined users
+                            table.table.users-table(id="joined-users")
+                                thead
+                                    tr
+                                        th User
+                                        if result.competition.isOrganizator
+                                            th Add points
+                                    each user in result.competition.joinedUsers
+                                        tr 
+                                            td
+                                                a.title(href="/users/" + user.username) #{user.username}
+                                            
+                                            if result.competition.isOrganizator
+                                                td
+                                                    if user.attended
+                                                        span.label.label-success(id="points-added") Points added
+                                                        button.btn.btn-info.addPoints.hidden(id="add-points-btn" data-username=user.username data-points=result.competition.points data-category=result.competition.category) Add Points
+                                                    else
+                                                        span.label.label-success.hidden(id="points-added") Points added
+                                                        button.btn.btn-info.addPoints(id="add-points-btn" data-username=user.username data-points=result.competition.points data-category=result.competition.category) Add Points
+block scripts
+
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.js")
+    script(src="/static/utils/requester.min.js")
+    script(src="/static/utils/notifier.min.js")
+    script(src="/static/js/competition.min.js")
+    script(src="/static/js/load-category.min.js")
+    script(src="/static/js/add-points.min.js")
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0PmHg9An9AdDbib9-jYefjSKSnapzFLQ&callback=initMap")
+    block additional-scripts
+
+
+    
+                
+
+             
+                    

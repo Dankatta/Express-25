@@ -1,0 +1,14 @@
+extends ../_layout
+
+block page-title
+    title !{result.title}
+
+block content
+    .panel.panel-default
+        .panel-heading Специалисти
+        .panel-body
+            script(src="./static/scripts/requester.js")
+            script(src="./static/scripts/get-doctors.js")
+
+    
+    

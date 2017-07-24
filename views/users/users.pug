@@ -1,0 +1,37 @@
+extend ../_layout
+
+block content
+    .main
+        .container
+            .section.text-center.section-landing
+                form.navbar-form(action="/users" method="get")
+                    .form-group.users-search
+                      input.form-control.col-sm-8(type='text', placeholder='Search users' name='search')
+                    button.glyphicon.glyphicon-search
+                if result.searchName
+                    div
+                        p Search: #{result.searchName}
+                else
+                    h2 Top Users
+                if result.users.length
+                    each user in result.users
+                        div
+                            img.user-img(src='/static/imgs/user-images/'+user.image)
+                            h3 #{user.firstName} #{user.lastName}
+                            p 
+                                a(href='/users/'+user.username) #{user.username}
+                            p Points: #{user.progress.totalPoints}
+                        hr
+                else
+                    h3 No users found
+                if result.params
+                   
+                    ul.pagination
+                        - for(let i = 1; i <= result.params.pagesCount; i+=1 )
+                            li
+                                if result.params.page === i
+                                    a.disabled(href=`/users?search=${result.searchName}&page=${i}`)
+                                        = i
+                                else
+                                    a(href=`/users?search=${result.searchName}&page=${i}`)
+                                        = i

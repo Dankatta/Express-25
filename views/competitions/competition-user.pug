@@ -1,0 +1,32 @@
+extends competition.pug
+
+block styles
+    link(rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.3/toastr.min.css")
+
+block like
+
+    div(id="competition-info" data-id=result.competition._id)
+        h3.competition
+            a(href="/competitions/"+ result.competition._id)= result.competition.title
+        p.likes Likes: 
+            span(id='competition-likes-count') #{result.competition.likes}
+            if result.competition.usersLiked.indexOf(result.user.username) < 0
+                button.btn.btn-success.like-competition Like
+            else
+                button.btn.btn-danger.dislike-competition Dislike    
+
+block joining
+    if result.competition.passed !== 'passed'
+        if result.competition.hasJoined
+            button.btn.btn-danger(id="leave") Leave
+            button.hidden.btn.btn-success(id="join") Join
+        else
+            button.hidden.btn.btn-danger(id="leave") Leave
+            button.btn.btn-success(id="join") Join
+
+block additional-scripts
+    script(src="/static/utils/requester.min.js")
+    script(src="/static/js/add-points.min.js")
+    script(src="/static/js/join-competition.min.js")
+    script(src="/static/js/like-dislike-competition.min.js")
+    

@@ -1,0 +1,49 @@
+extends ../_layout
+
+block content
+   .wrapper
+      .header.header-filter(style="background-image: url('/static/imgs/nature-wallpapers26.jpg');")
+      .main.main-raised(style="margin-top: -500px;")
+        .profile-content
+          .container
+            .row
+                .col-md-3(style="margin-top: 5px;")
+                    img.img-rounded(src='/static/imgs/user-images/'+result.userForProfile.image, width="250px", height="auto;",alt='Rounded Image')
+                    h3 Username: #{result.userForProfile.username}
+                .col-md-6.col-md-offset-1
+                    .name
+                        h3 Full name: #{result.userForProfile.firstName} #{result.userForProfile.lastName}
+                        if result.userForProfile.birthDate
+                            div
+                                strong Birth date: 
+                                span #{result.userForProfile.birthDate}
+                        if result.userForProfile.email
+                            div
+                                strong Email: 
+                                span #{result.userForProfile.email}
+                        
+                        .table-responsive
+                            table.table.users-table
+                              thead.thead-inverse
+                                tr
+                                    td Total Points: #{result.userForProfile.progress.totalPoints}
+                              each category in result.userForProfile.progress.categoriesPoints
+                                  tr
+                                      td #{category.name}: #{category.points}
+
+                    block joinedCompetitions
+                    block atendedCompetitions
+                        .col-md-offset-5.dropdown
+                            a.btn.btn-simple.btn-info.dropdown-toggle(href='#', data-toggle='dropdown')
+                                | Attended Competitions
+                                b.caret
+                            ul.dropdown-menu.btn-info
+                                    each competition in result.userForProfile.attendedCompetitions
+                                        li
+                                            div 
+                                                a(href="/competitions/"+ competition._id) #{competition.name}
+                                                span #{competition.place}
+                    block edit 
+
+                         
+                                 

@@ -1,0 +1,107 @@
+extends _layout
+include ./_mixins/categories-mixin
+
+block content
+    body.landing-page
+    .wrapper
+      .header.header-filter(style="background-image: url('http://www.devittinsurance.com/wp-content/uploads/2016/01/competition-banner-background.jpg');")
+        .container.nopadding
+          .row(style='margin-top: 100px')
+            .center-heading
+              h1.main-heading Our top competitions
+          div(id='myCarousel' class='carousel slide' data-ride='carousel')
+            ol.carousel-indicators
+              - for(let i = 0; i < result.topCompetitions.length; i+=1 )
+                if i === 0
+                  li(data-target='#myCarousel' data-slide-to='0' class='active')
+                else
+                  li(data-target='#myCarousel' data-slide-to=i)
+            .carousel-inner(role='listbox')
+              - for(let i = 0; i < result.topCompetitions.length; i+=1 )
+                if i === 0
+                  .item(class='active')
+                    img.img-rounded(src='/static/imgs/competition-images/'+result.topCompetitions[i].image, alt='Competition image')
+                    //-img.img-rounded(src='http://www.amazingwallpaperz.com/wp-content/uploads/3D-Landscape-Wallpaper-High-Definition.jpg' alt='Chania')
+                    .header-text.hidden-xs
+                     .col-md-12.text-center.slider-text
+                       h2 
+                         a(href='/competitions/'+ result.topCompetitions[i]._id) #{result.topCompetitions[i].name}
+                       h3 
+                         a(href='/competitions/'+ result.topCompetitions[i]._id) #{result.topCompetitions[i].place}
+                else
+                  .item
+                    img.img-rounded(src='/static/imgs/competition-images/'+result.topCompetitions[i].image, alt='Competition image')
+                    //- img.img-rounded(src='http://www.amazingwallpaperz.com/wp-content/uploads/3D-Landscape-Wallpaper-High-Definition.jpg', alt='Chania')
+                    .header-text.hidden-xs
+                      .col-md-12.text-center.slider-text
+                        h2 
+                          a(href='/competitions/'+ result.topCompetitions[i]._id) #{result.topCompetitions[i].name}
+                        h3 
+                          a(href='/competitions/'+ result.topCompetitions[i]._id) #{result.topCompetitions[i].place}
+            
+            a.left.carousel-control(role='button', data-slide='prev' href="#myCarousel")
+              span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+              |  
+              span.sr-only Previous
+            a.right.carousel-control(role='button', data-slide='next' href="#myCarousel")
+              span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
+              |  
+              span.sr-only Next
+    
+    .main.main-raised
+      .container
+        .section.text-center.section-landing
+          .row
+            .col-md-8.col-md-offset-2
+              h2.title Conquer Bulgaria is your competitions online guide!
+              h5.description
+                | Welcome to Bulagria&rsquo;s Biggest Competitions Website, with over 100,000 members! Since 2016 we have set the standard in the way that competitions are communicated. First up, we are based here in Sofia, whilst a lot of so called &lsquo;Aussie&rsquo; sites are located all over the     world. Secondly, your membership is Free. There are no special locked areas, anything on our site you can click away to your heart&rsquo;s content. The reason the media comes to us is simple, we know the game better than anyone else. Competitions Guide is all about fresh competitions,     delivered daily. We invite you to Join us - Free!
+          +categories-list(result.categories)
+        
+        
+        .section.text-center.section-landing
+          .row
+              .col-md-6
+                h3.title.home-list-title Upcomming competitions
+                ul.upcomming
+                    each competition in result.upcommingCompetitions
+                        article.search-result.row
+                          .col-xs-4.col-sm-4
+                            a.home-thumbnail(href='#', title='Lorem ipsum')
+                              //- img(src='/static/imgs/competitions-imgs/'+competition.image, alt='Competition image')
+                              img(src='/static/imgs/competition-images/'+competition.image, alt='Competition image')
+                          .col-xs-4.col-sm-4.right-border
+                            ul.meta-search
+                              li
+                                i.glyphicon.glyphicon-calendar
+                                span #{competition.startDate}
+                              li
+                                i.glyphicon.glyphicon-tags
+                                span 
+                                  a.category-title #{competition.category}
+                          .col-xs-4.col-sm-4.excerpet
+                            h3
+                              a(href='/competitions/'+competition._id) #{competition.name}
+                            p  #{competition.place}
+                          span.clearfix.borda
+                        //- li 
+                        //-     a(href="/competitions/" + commingCompetition._id) #{commingCompetition.place}
+                        //-     div #{commingCompetition.name}
+              
+
+              .col-md-3.col-md-offset-2
+                h3.title.home-list-title Top Users
+                .table-responsive
+                  table.table.users-table
+                    thead.thead-inverse
+                      tr
+                          th #
+                          th User
+                          th Points
+                    -for(let i=0; i < result.topUsers.length; i+=1)
+                       tr
+                          td #{i}
+                          td
+                              a(href="/users/" + result.topUsers[i].username) #{result.topUsers[i].username}
+                          td #{result.topUsers[i].progress.totalPoints}
+

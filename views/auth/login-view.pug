@@ -1,0 +1,21 @@
+extends ../_layout
+block content
+  .section.section-full-screen.section-signup
+    .container
+      .col-md-4.col-md-offset-4
+        section
+          .panel.panel-default.top.caja
+            .panel-body
+              h3.text-center Admin Login
+              form
+                .input-group.input-group-lg
+                  span#sizing-addon1.input-group-addon
+                    i.fa.fa-user(aria-hidden='true')
+                  input#email.form-control(type='email', name='email', placeholder='Email', aria-describedby='sizing-addon1', required='')
+                br
+                .input-group.input-group-lg
+                  span#sizing-addon1.input-group-addon
+                    i.fa.fa-key(aria-hidden='true')
+                  input#password.form-control(type='password', name='password', placeholder='Password', aria-describedby='sizing-addon1', required='')
+                br
+                button.btn.btn-primary.btn-block(type='submit') Ingresar
