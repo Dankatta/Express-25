@@ -7,6 +7,8 @@ module.exports = function(app, data, models, validation) {
     const router = new express.Router();
 
     router
-        .get('/', controller.getHome);
+        .get('/', controller.getHome)
+        .get('/events', controller.getEvents)
+        .get('/gallery', controller.getGallery);
     app.use('/', router);
 };

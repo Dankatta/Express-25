@@ -17,7 +17,15 @@ module.exports = function(data, models, validation) {
         getHome(req, res) {
             const result = init(req, {});
 
-            res.render('_layout.pug', { result });
+            res.render('home/home.pug', { result });
+        },
+        getEvents(req,res){
+            const result = init(req,{});
+            res.render('home/events.pug',{result});
+        },
+        getGallery(req,res){
+            const result = init(req,{});
+            res.render('home/gallery.pug',{result});
         },
     };
 };
