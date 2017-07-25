@@ -16,7 +16,6 @@ module.exports = function(data, models, validation) {
          return {
         getHome(req, res) {
             const result = init(req, {});
-            result.title = 'MediLink+';
 
             res.render('_layout.pug', { result });
         },
