@@ -1,5 +1,3 @@
-const crypto = require('crypto-js');
-
 module.exports = function(constants, validator) {
     class BaseUser {
         constructor(user, pass) {
@@ -26,31 +24,40 @@ module.exports = function(constants, validator) {
             validator.validateStringLength(value,
                 constants.MIN_PASSWORD_LENGTH, constants.MAX_PASSWORD_LENGTH);
 
-            this.password = new crypto.SHA1(value.trim()).toString();
+            this.password = value.trim().toString();
         }
     }
 
     class User extends BaseUser {
-        constructor(user, pass, firstName, lastName) {
+        constructor(user, pass, firstname, lastname, email) {
             super(user, pass);
-            this.firstName = firstName;
-            this.lastName = lastName;
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.email = email;
         }
 
-        get firstName() {
-            return this._firstName;
+        get firstname() {
+            return this._firstname;
         }
 
-        set firstName(value) {
-            this._firstName = value;
+        set firstname(value) {
+            this._firstname = value;
         }
 
-        get lastName() {
-            return this._lastName;
+        get lastname() {
+            return this._lastname;
         }
 
-        set lastName(value) {
-            this._lastName = value;
+        set lastname(value) {
+            this._lastname = value;
+        }
+
+        get email() {
+            return this._email;
+        }
+
+        set email(value) {
+            this._email = value;
         }
     }
 
@@ -58,8 +65,8 @@ module.exports = function(constants, validator) {
         getBaseUser(user, pass) {
             return new BaseUser(user, pass);
         },
-        getUser(user, pass, firstName, lastName) {
-            return new User(user, pass, firstName, lastName);
+        takeUser(user, pass, firstname, lastname, email) {
+            return new User(user, pass, firstname, lastname, email);
         },
     };
 };

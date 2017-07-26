@@ -16,7 +16,7 @@ module.exports = function(data) {
     app.use(cookieParser());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(session({
-        secret: 'secret',
+        secret: 'secret1',
         resave: true,
         saveUninitialized: true,
     }));
