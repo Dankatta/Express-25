@@ -1,9 +1,9 @@
 extends ../_layout
 
 block content
-    #ul
+    #users
         ul
             each user in users
                 li
                     a(href="/users/"+user._id)
-                        =user.username
+                                    =user.username

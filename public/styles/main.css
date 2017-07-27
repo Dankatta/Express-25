@@ -42,7 +42,14 @@ nav li a:hover:not(.active) {
 #ul{
     padding: 50px;
 }
-#user{
+#user h1{
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-top:0px;
+    padding:15px;
+}
+#users{
+    margin-top: 50px;
     position: absolute;
     right:25%;
     height: 45%;
@@ -51,9 +58,16 @@ nav li a:hover:not(.active) {
     border: 1px solid white;
     background-color: #8B008B;
 }
-#user h1{
+#users li{
+    text-align: center;
+    list-style: none;
     border: 1px solid white;
     border-radius: 10px;
-    margin-top:0px;
+    margin-top:15px;
     padding:15px;
+    margin-right: 35px;
+}
+#users ul{
+    margin-top:35px;
+    list-style: none;
 }
