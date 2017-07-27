@@ -1,17 +1,11 @@
 module.exports = function(data, models, validation) {
     function init(req, result) {
-        // if (req.isAuthenticated()) {
-        //     result.user = req.user.username;
-        //     if (req.user._userType === 'doctorType') {
-        //         result.isDoctor = true;
-        //     }
-
-        //     if (req.user._userType === 'patientType') {
-        //         result.isPatient = true;
-        //     }
-        // }
-
+        function isAuth(req, result){
+        if (req.isAuthenticated()) {
+            result.user = req.user.username;
+        }
         return result;
+    }
     }
          return {
         getHome(req, res) {
