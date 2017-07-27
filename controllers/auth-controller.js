@@ -1,10 +1,18 @@
 module.exports = function(data, models, validation) {
+    function isAuth(req, result){
+        if (req.isAuthenticated()) {
+            result.user = req.user.username;
+        }
+        return result;
+    }
     return {
         loadRegisterPage(req, res) {
-            return res.status(200).render('auth/register-view', { result: {} });
+            const result = isAuth(req, {});
+            return res.status(200).render('auth/register-view', { result });
         },
         loadLoginPage(req, res) {
-            return res.status(200).render('auth/login-view', { result: {} });
+            const result = isAuth(req, {});
+            return res.status(200).render('auth/login-view', { result });
         },
         register(req, res) {
             const user = models.takeUser(

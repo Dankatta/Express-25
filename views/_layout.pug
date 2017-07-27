@@ -6,7 +6,7 @@ html(lang="bg")
         link(rel="stylesheet", href="./static/styles/main.css")  
         link(rel="shortcut icon" type="image/x-icon" href="./static/images/favicon.png")
     header
-        if result
+        if result.user
             nav
 
                 ul
@@ -19,8 +19,8 @@ html(lang="bg")
                     li(style='float:right')
                         a(href='/logout') Logout
                     li(style='float:right')
-                        a(href='/register') Hello, {result.user}
-        else
+                        a(href='/profile') Hello, !{result.user}
+        if !(result.user)
             nav
                 ul
                     li
