@@ -2,11 +2,12 @@ extends ../_layout
 
 block content
     #user
-        h1 username
-        ul
-            li
-                | First Name:
-            li
-                | Last Name:
-            li
-                | E-mail:
+    h1 Username: 
+        =user.username
+    ul
+        li First Name: 
+            =user._firstname
+        li Last Name: 
+            =user._lastname
+        li E-mail: 
+            =user._email
