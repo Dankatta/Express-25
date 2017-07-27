@@ -11,13 +11,10 @@ module.exports = function(app, data, models, validation) {
         .get('/login', controller.loadLoginPage)
         .get('/register', controller.loadRegisterPage)
         .post('/login',
-            passport.authenticate('local', {
-                failureRedirect: '/login'
-            },(req, res) => {
+            passport.authenticate('local', { failureRedirect: '/error' }),
+            function(req, res) {
                 res.redirect('/');
-                res.status(200)
-                    .send('<h1>Worked!</h1>')
-            }))
+            })
         .post('/register', controller.register)
         .get('/logout', controller.logout)
     app.use('/', router);
