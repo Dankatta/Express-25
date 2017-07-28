@@ -51,11 +51,17 @@ nav li a:hover:not(.active) {
     margin-top:0px;
     padding:15px;
 }
+#userback{
+    top:48px;
+    height: 92%;
+    position: absolute;
+
+}
 #users{
-    margin-top: 50px;
+    margin-top: 55px;
+    padding-bottom: 26px;
     position: absolute;
     right:25%;
-    height: 45%;
     width: 50%;
     border-radius: 10px;
     border: 1px solid white;
@@ -98,13 +104,13 @@ top: 15em;
 #gallery3{
 left: 26em;
 top: 15em;
-}
-/* #everything{
+  }
+ #everything{
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
-     background-image: url('https://cdn.pixabay.com/photo/2015/03/30/14/17/art-gallery-699429_1280.jpg'); 
+     background-image: url('../images/gallery.jpg'); 
      
     background-size: 100% 100%;
-} */
+}   
