@@ -7,17 +7,31 @@ html(lang="bg")
         link(rel="shortcut icon" type="image/x-icon" href="./static/images/favicon.png")
 #everything        
     header
-            nav
-                ul
-                    li
-                        a(href='/') Home
-                    li
-                        a(href='/events') Events
-                    li#last
-                        a(href='/users') Users
-                    li(style='float:right')
-                        a(href='/login') Log In
-                    li(style='float:right')
-                        a(href='/register') Register
+            if result.user
+                nav
+                    ul
+                        li
+                            a(href='/') Home
+                        li
+                            a(href='/events') Events
+                        li#last
+                            a(href='/users') Users
+                        li(style='float:right')
+                            a(href='/logout') Logout
+                        li(style='float:right')
+                            a(href='/prfile') Hello, !{result.user}
+            else
+                nav
+                    ul
+                        li
+                            a(href='/') Home
+                        li
+                            a(href='/events') Events
+                        li#last
+                            a(href='/users') Users
+                        li(style='float:right')
+                            a(href='/login') Log In
+                        li(style='float:right')
+                            a(href='/register') Register
 
     block content
