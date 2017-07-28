@@ -17,9 +17,5 @@ module.exports = function(data, models, validation) {
             const result = init(req,{});
             res.render('home/events.pug',{result});
         },
-        getGallery(req,res){
-            const result = init(req,{});
-            res.render('home/gallery.pug',{result});
-        },
     };
 };
