@@ -14,8 +14,10 @@ module.exports = function(data, models, validation) {
             res.render('home/home.pug', { result });
         },
         getEvents(req,res){
-            const result = init(req,{});
-            res.render('home/events.pug',{result});
+            data.getEvents()
+            .then((result)=>{
+            console.log(result);
+            res.render('home/events.pug',{result})});
         },
     };
 };
