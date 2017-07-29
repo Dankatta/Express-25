@@ -11,8 +11,18 @@ module.exports = function(repository, models) {
         createUser(user) {
             return repository.add('users', user);
         },
-        getUsers() {
-            return repository.find('users', {});
+        getUsers(filter) {
+            return repository.find('users', filter);
+        },
+        updateUser(filter) {
+            return repository.update('users', filter);
+        },
+
+        getDoctor(filter) {
+            return repository.findOne('users', filter);
+        },
+        findUser(filter) {
+            return repository.findOne('users', filter);
         },
     };
 };
