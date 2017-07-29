@@ -5,16 +5,17 @@ module.exports = function(data, models, validation) {
         }
         return result;
     }
-         return {
+    return {
         getHome(req, res) {
             const result = isAuth(req, {});
 
             res.render('home/home.pug', { result });
         },
         getEvents(req,res){
+            const result = isAuth(req, {});
             data.getEvents()
-            .then((result)=>{
-                res.render('home/events.pug',{result});
+            .then(()=>{
+                res.render('home/events.pug',{ result });
             })
         },
     };
