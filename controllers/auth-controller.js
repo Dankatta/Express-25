@@ -1,4 +1,6 @@
+const {SHA256} = require('crypto-js');
 module.exports = function(data, models, validation) {
+
     function isAuth(req, result){
         if (req.isAuthenticated()) {
             result.user = req.user.username;
@@ -17,7 +19,7 @@ module.exports = function(data, models, validation) {
         register(req, res) {
             const user = models.takeUser(
                 req.body.username,
-                req.body.password,
+                SHA256(req.body.password).toString(),
                 req.body.firstname,
                 req.body.lastname,
                 req.body.email

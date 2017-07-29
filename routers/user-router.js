@@ -9,5 +9,5 @@ module.exports = function(app, data, models, validation) {
     router
         .get('/',controller.getUsers)
         .get('/:id', controller.getUserbyId)
-    app.use('/users', router);
+    app.use('/users/', router);
 };

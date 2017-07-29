@@ -1,3 +1,4 @@
+const {SHA256} = require('crypto-js');
 module.exports = function(constants, validator) {
     class BaseUser {
         constructor(user, pass) {
@@ -63,7 +64,7 @@ module.exports = function(constants, validator) {
 
     return {
         getBaseUser(user, pass) {
-            return new BaseUser(user, pass);
+            return new BaseUser(user, SHA256(pass).toString());
         },
         takeUser(user, pass, firstname, lastname, email) {
             return new User(user, pass, firstname, lastname, email);
