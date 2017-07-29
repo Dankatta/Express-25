@@ -42,13 +42,13 @@ module.exports = function(data, models, validation) {
             }
 
             const result = isAuth(req, {});
-            result.title = 'Профил';
-
+            result.title = 'Profile';
             data.getUsers({ username: result.user })
                 .then((users) => {
                     const user = users[0];
-                    result.firstName = user._firstName;
-                    result.lastName = user._lastName;
+                    result.firstname = user._firstname;
+                    result.lastname = user._lastname;
+                    result.email = user._email;
                     res.render('auth/profile-view', { result });
 
                 });
