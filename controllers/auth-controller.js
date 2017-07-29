@@ -51,9 +51,6 @@ module.exports = function(data, models, validation) {
 
                 });
         },
-        getLoggedUser(req, res) {
-            res.send(JSON.stringify({ result: req.user }));
-        },
         logout(req, res) {
             req.logout();
             res.status(200).redirect('/');
