@@ -11,8 +11,8 @@ module.exports = function(repository, models) {
         createUser(user) {
             return repository.add('users', user);
         },
-        getUsers(filter) {
-            return repository.find('users', filter);
+        getUsers() {
+            return repository.find('users', {});
         },
     };
 };

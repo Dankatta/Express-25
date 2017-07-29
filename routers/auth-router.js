@@ -17,6 +17,7 @@ module.exports = function(app, data, models, validation) {
             })
         .post('/register', controller.register)
         .get('/profile', controller.getProfile)
+        .post('/profile', controller.getModifyProfilePage)
         .get('/logout', controller.logout)
     app.use('/', router);
 };

@@ -53,6 +53,43 @@ module.exports = function(data, models, validation) {
 
                 });
         },
+        getModifyProfilePage(req, res) {
+            const result = isAuth(req, {});
+            return res.status(200).render('auth/change-profile-view', { result });
+        },
+        changeProfilePage(req, res) {
+            // const result = isAuth(req, {});
+            // const userId = req.user._id;
+            // const firstname = req.body.firstname;
+            // const lastname = req.body.lastname;
+            // const email =  req.body.email;
+            //
+            // data.findUserById(userId)
+            //     .then((userData) => {
+            //         userData.firstname = firstname;
+            //         userData.lastname = lastname;
+            //         userData.email = email;
+            //         data.updateUser(userData);
+            //         res.redirect('/');
+            //     });
+            //
+            // res.redirect('/home', { result });
+            const firstname = req.body.firstname;
+            const lastname = req.body.lastname;
+            const email =  req.body.email;
+            const userId = req.user._id;
+
+            data.getUsers({
+                _userId: userId,
+            })
+                .then((doctor) => {
+                    doctor._firstname = firstname;
+                    doctor._lastname = lastname;
+                    doctor._email = email;
+                    data.updateUser(doctor);
+                    res.redirect('/');
+                });
+    },
         logout(req, res) {
             req.logout();
             res.status(200).redirect('/');
