@@ -66,19 +66,17 @@ module.exports = function(data, models, validation) {
             const firstname = req.body.firstname;
             const lastname = req.body.lastname;
             const email = req.body.email;
-            const userId = req.user._id;
 
-            data.findUser({
-                _userId: userId,
-            })
-            .then((user) => {
+            data.getUsers({ username: result.user })
+            .then((users) => {
+                    const user = users[0];
                     user._firstname = firstname;
                     user._lastname = lastname;
                     user._email = email;
                     data.updateUser(user);
-
+                res.redirect('/');
             });
-            res.redirect('/', {result});
+
         },
         logout(req, res) {
             req.logout();

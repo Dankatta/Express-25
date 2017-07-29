@@ -16,13 +16,6 @@ module.exports = function(repository, models) {
         },
         updateUser(filter) {
             return repository.update('users', filter);
-        },
-
-        getDoctor(filter) {
-            return repository.findOne('users', filter);
-        },
-        findUser(filter) {
-            return repository.findOne('users', filter);
-        },
+        }
     };
 };

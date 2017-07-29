@@ -17,7 +17,10 @@ module.exports = function(app, data, models, validation) {
             })
         .post('/register', controller.register)
         .get('/profile', controller.getProfile)
-        .post('/profile', controller.getModifyProfilePage)
+        .get('/profile', controller.getProfile)
+        .post('/profile', (req, res) => res.redirect('/profile-change'))
+        .get('/change-profile', controller.getModifyProfilePage)
+        .post('/change-profile', controller.changeProfilePage)
         .get('/logout', controller.logout)
     app.use('/', router);
 };
