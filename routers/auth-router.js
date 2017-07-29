@@ -16,6 +16,7 @@ module.exports = function(app, data, models, validation) {
                 res.redirect('/');
             })
         .post('/register', controller.register)
+        .get('/profile', controller.getProfile)
         .get('/logout', controller.logout)
     app.use('/', router);
 };

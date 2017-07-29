@@ -34,6 +34,23 @@ module.exports = function(data, models, validation) {
                 });
             res.redirect('/login');
         },
+        getProfile(req, res) {
+            if (!req.isAuthenticated()) {
+                res.redirect('/unauthorized');
+            }
+
+            const result = isAuth(req, {});
+            result.title = 'Профил';
+
+            data.getUsers({ username: result.user })
+                .then((users) => {
+                    const user = users[0];
+                    result.firstName = user._firstName;
+                    result.lastName = user._lastName;
+                    res.render('auth/profile-view', { result });
+
+                });
+        },
         logout(req, res) {
             req.logout();
             res.status(200).redirect('/');
