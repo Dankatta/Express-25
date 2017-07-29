@@ -14,8 +14,8 @@ module.exports = function(data, models, validation) {
         getEvents(req,res){
             const result = isAuth(req, {});
             data.getEvents()
-            .then(()=>{
-                res.render('home/events.pug',{ result });
+            .then((events)=>{
+                res.render('home/events.pug',{ events,result });
             })
         },
     };
