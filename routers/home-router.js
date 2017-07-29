@@ -9,5 +9,6 @@ module.exports = function(app, data, models, validation) {
     router
         .get('/', controller.getHome)
         .get('/events', controller.getEvents)
+        .get('/reservation',controller.getReservation)
     app.use('/', router);
 };
