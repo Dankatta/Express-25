@@ -4,10 +4,12 @@ block page-title
   title !{result.title}
 
 block content
-  .col-md-5.col-md-offset-3
-    .panel.panel-default
-      .panel-heading Профил на !{result.user}
-      .panel-body
-        form(method='post')
-          div Име: !{result._firstname} !{result._lastname}
-          button(id='changeInfoBtn' class="btn btn-info btn-block") Промяна
+  .container
+    .col-md-5.col-md-offset-3
+      .panel.panel-default
+        .panel-heading Profile of !{result.user}
+        .panel-body
+          form(method='post')
+            div Name: !{result.firstname} !{result.lastname}
+            div Email: !{result.email}
+            button(id='changeInfoBtn' class="btn btn-info btn-block") Change
