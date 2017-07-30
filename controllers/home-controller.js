@@ -11,10 +11,6 @@ module.exports = function(data, models, validation) {
 
             res.render('home/home.pug', { result });
         },
-        getReservation(req, res) {
-            const result = isAuth(req, {});
-            res.render('home/reservation.pug', { result });
-        },
         getEvents(req,res){
             const result = isAuth(req, {});
             data.getEvents()

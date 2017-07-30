@@ -1,20 +1,45 @@
 extends ../_layout
 
-block content  
-  .container
-    .row.centered-form
-      .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
-        .panel.panel-default
-          .panel-heading
-            h3.panel-title Make a reservation
-          .panel-body
-            form(role='form' action="/reservation" method="post")
-              .form-group
-                select.form-control.input-sm
-                    option(value='Maharani') Maharani
-                    option(value='Vila Maharani') Vila Maharani
-              .form-group
-                input.form-control.input-sm(type='text', name='peope', placeholder='Number of people')
-              .form-group
-                input.form-control.input-sm(type='text', name='time', placeholder='Time(hh:mm)')
-              input.btn.btn-info.btn-block(type='submit', value='Make')
+block content
+  if result.user
+    button.btn.btn-primary(type='button', onclick='myFunction()') Create Event
+    #myDIV(style='display: none;')
+      .container
+        .row.centered-form
+          .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
+            .panel.panel-default
+              .panel-heading
+                h3.panel-title Make a reservation
+              .panel-body
+                form(role='form' action="/reservation" method="post")
+                  .form-group
+                    select#place.form-control.input-sm
+                      option(value='Maharani', name='place') Maharani
+                      option(value='Vila Maharani', name='place') Vila Maharani
+                  .form-group
+                    input#people.form-control.input-sm(type='text', name='people', placeholder='Number of people')
+                  .form-group
+                    input#time.form-control.input-sm(type='text', name='time', placeholder='Time(hh:mm)')
+                  input.btn.btn-info.btn-block(type='submit', value='Make')
+    #reservations
+      ul
+        each reservation in reservations
+          li
+            h1 Name:
+              =reservation.people
+            h2 Place:
+              =reservation.place
+            h2 Time:
+              =reservation.time
+  else
+    #reservations
+      ul
+        each reservation in reservations
+          li
+            h1 People:
+              =reservation.people
+            h2 Place:
+              =reservation.place
+            h2 Time:
+              =reservation.time
+  script(src="./static/scripts/event-form.js")
