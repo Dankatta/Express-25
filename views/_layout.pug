@@ -5,6 +5,8 @@ html(lang="bg")
         link(rel="stylesheet", href="./libs/bootstrap/dist/css/bootstrap.min.css")
         link(rel="stylesheet", href="./static/styles/main.css")  
         link(rel="shortcut icon" type="image/x-icon" href="./static/images/favicon.png")
+        link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/css/toastr.min.css")
+
 #everything        
     header
             if result.user
@@ -41,3 +43,5 @@ html(lang="bg")
                             a(href='/register') Register
 
     block content
+    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js')
