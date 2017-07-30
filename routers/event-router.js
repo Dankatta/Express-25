@@ -8,5 +8,6 @@ module.exports = function(app, data, models, validation) {
 
     router
         .post('/add-event', controller.createEvent)
+        .get('/events', controller.getEvents)
     app.use('/', router);
 };
