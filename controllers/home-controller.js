@@ -1,7 +1,7 @@
 module.exports = function(data, models, validation) {
     function isAuth(req, result){
         if (req.isAuthenticated()) {
-            result.user = req.user.username;
+            result.user = req.user;
         }
         return result;
     }
@@ -15,12 +15,6 @@ module.exports = function(data, models, validation) {
             const result = isAuth(req, {});
             res.render('home/reservation.pug', { result });
         },
-        getEvents(req,res){
-            const result = isAuth(req, {});
-            data.getEvents()
-            .then((events)=>{
-                res.render('home/events.pug',{ events,result });
-            })
-        },
+        
     };
 };
