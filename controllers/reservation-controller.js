@@ -11,7 +11,10 @@ module.exports = function(data, models, validation) {
             const reservation = models.getReservation(
                 req.body.people,
                 req.body.place,
-                req.body.time
+                req.body.time,
+                req.body.name,
+                req.body.number
+
             );
 
             data.createReservation(reservation)

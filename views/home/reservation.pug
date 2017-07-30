@@ -7,12 +7,17 @@ block content
         ul
           each reservation in reservations
             li
-              h1 Name:
+              h2 People:
                 =reservation._people
               h2 Place:
                 =reservation._place
               h2 Time:
                 =reservation._time
+              h2 Name:
+                =reservation._name
+              h2 Phone Number:
+                =reservation._number
+                
     else
     button.btn.btn-primary(type='button', onclick='myFunction()') Create Reservation
     #myDIV(style='display: none;')
@@ -25,11 +30,15 @@ block content
               .panel-body
                 form(role='form' action="/reservation" method="post")
                   .form-group
-                    select#place.form-control.input-sm
+                    select#place.form-control.input-sm(name='place')
                       option(value='Maharani', name='place') Maharani
                       option(value='Vila Maharani', name='place') Vila Maharani
                   .form-group
                     input#people.form-control.input-sm(type='text', name='people', placeholder='Number of people')
+                  .form-group
+                    input#people.form-control.input-sm(type='text', name='name', placeholder='Name')
+                  .form-group
+                    input#people.form-control.input-sm(type='text', name='number', placeholder='Phone number')
                   .form-group
                     input#time.form-control.input-sm(type='text', name='time', placeholder='Time(hh:mm)')
                   input.btn.btn-info.btn-block(type='submit', value='Make')
