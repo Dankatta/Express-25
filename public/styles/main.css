@@ -111,4 +111,12 @@ top: 21em;
 body{
      background-image: url('http://igniternetwork.com/wp-content/uploads/2014/03/Elegant_Background-14.jpg');
     background-repeat: repeat;
-}   
+}
+.btn-primary {
+    margin-top: 55px;
+    width: 50%;
+    margin-left: 25%;
+}
+#myDIV>.container {
+    padding:15px;
+}
