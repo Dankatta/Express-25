@@ -57,7 +57,7 @@ nav li a:hover:not(.active) {
     position: absolute;
 
 }
-#users , #events {
+#users , #events, #reservations {
     margin-top: 55px;
     padding-bottom: 26px;
     position: absolute;
@@ -67,7 +67,7 @@ nav li a:hover:not(.active) {
     border: 1px solid white;
     background-color: #8B008B;
 }
-#users li,#events li{
+#users li,#events li #reservations li{
     text-align: center;
     list-style: none;
     border: 1px solid white;
@@ -76,7 +76,7 @@ nav li a:hover:not(.active) {
     padding:15px;
     margin-right: 35px;
 }
-#users ul,#events ul{
+#users ul,#events ul, #reservations li{
     margin-top:35px;
     list-style: none;
 }

@@ -2,7 +2,7 @@ extends ../_layout
 
 block content
   if result.user
-    button.btn.btn-primary(type='button', onclick='myFunction()') Create Event
+    button.btn.btn-primary(type='button', onclick='myFunction()') Create Reservation
     #myDIV(style='display: none;')
       .container
         .row.centered-form
@@ -26,20 +26,20 @@ block content
         each reservation in reservations
           li
             h1 Name:
-              =reservation.people
+              =reservation._people
             h2 Place:
-              =reservation.place
+              =reservation._place
             h2 Time:
-              =reservation.time
+              =reservation._time
   else
     #reservations
       ul
         each reservation in reservations
           li
             h1 People:
-              =reservation.people
+              =reservation._people
             h2 Place:
-              =reservation.place
+              =reservation._place
             h2 Time:
-              =reservation.time
+              =reservation._time
   script(src="./static/scripts/event-form.js")

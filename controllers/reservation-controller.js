@@ -8,7 +8,7 @@ module.exports = function(data, models, validation) {
     return {
         createReservation(req, res) {
             const result = isAuth(req, {});
-            const reservation = models.getReservations(
+            const reservation = models.getReservation(
                 req.body.people,
                 req.body.place,
                 req.body.time
@@ -29,7 +29,7 @@ module.exports = function(data, models, validation) {
             const result = isAuth(req, {});
             data.getReservations()
                 .then((reservations)=>{
-                    res.render('home/events.pug',{ reservations,result });
+                    res.render('home/reservation.pug',{ reservations,result });
                 })
         },
     };
