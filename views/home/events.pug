@@ -1,35 +1,49 @@
 extends ../_layout
 
 block content
-    button.btn.btn-primary(type='button', onclick='myFunction()') Create Event
-    #myDIV(style='display: none;')
-        .container
-            .row.centered-form
-                .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
-                    .panel.panel-default
-                        .panel-heading
-                            h3.panel-title Make a event
-                        .panel-body
-                            form(role='form', action='/add-event', method='post')
-                                .form-group
-                                    input#title.form-control.input-sm(type='text', name='title', placeholder='Title')
-                                .form-group
-                                    input#place.form-control.input-sm(type='text', name='place', placeholder='Place')
-                                .form-group
-                                    input#time.form-control.input-sm(type='text', name='time', placeholder='Time')
-                                .form-group
-                                    input#description.form-control.input-sm(type='text', name='description', placeholder='Description')
-                                input.btn.btn-info.btn-block(type='submit', value='Add')
-    #Events
-        ul
-            each event in events
-                li
-                    h1 Name:
-                        =event._title
-                    h2 Place:
-                        =event._place
-                    h2 Time:
-                        =event._time
-                    h2 Description:
-                        =event._description
+    if result.user
+        button.btn.btn-primary(type='button', onclick='myFunction()') Create Event
+        #myDIV(style='display: none;')
+            .container
+                .row.centered-form
+                    .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
+                        .panel.panel-default
+                            .panel-heading
+                                h3.panel-title Make a event
+                            .panel-body
+                                form(role='form', action='/add-event', method='post')
+                                    .form-group
+                                        input#title.form-control.input-sm(type='text', name='title', placeholder='Title')
+                                    .form-group
+                                        input#place.form-control.input-sm(type='text', name='place', placeholder='Place')
+                                    .form-group
+                                        input#time.form-control.input-sm(type='text', name='time', placeholder='Time')
+                                    .form-group
+                                        input#description.form-control.input-sm(type='text', name='description', placeholder='Description')
+                                    input.btn.btn-info.btn-block(type='submit', value='Add')
+        #Events
+            ul
+                each event in events
+                    li
+                        h1 Name:
+                            =event._title
+                        h2 Place:
+                            =event._place
+                        h2 Time:
+                            =event._time
+                        h2 Description:
+                            =event._description
+    else
+        #Events
+            ul
+                each event in events
+                    li
+                        h1 Name:
+                            =event._title
+                        h2 Place:
+                            =event._place
+                        h2 Time:
+                            =event._time
+                        h2 Description:
+                            =event._description
     script(src="./static/scripts/event-form.js")
