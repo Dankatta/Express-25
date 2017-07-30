@@ -17,6 +17,8 @@ module.exports = function(data, models, validation) {
 
             );
 
+            global.io.emit('new-reservation', reservation);
+
             data.createReservation(reservation)
                 .then(() => {
                     res.json({ success: 'Reservation successfull' });
