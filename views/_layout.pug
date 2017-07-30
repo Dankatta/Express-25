@@ -16,8 +16,12 @@ html(lang="bg")
                             a(href='/events') Events
                         li
                             a(href='/users') Users
-                        li#last
-                            a(href='/reservation') Make a Reservation
+                        if result.user.role        
+                            li#last
+                                a(href='/reservation') Reservations
+                        else
+                            li#last
+                                a(href='/reservation') Make a Reservation
                         li(style='float:right')
                             a(href='/logout') Logout
                         li(style='float:right')

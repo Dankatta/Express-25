@@ -4,6 +4,5 @@ block content
     #users
         ul
             each user in users
-                li
-                   a(href="/users/"+user._id)
-                       =user.username
+                li Username: 
+                   =user.username 

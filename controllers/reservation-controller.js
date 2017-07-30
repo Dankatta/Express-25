@@ -23,7 +23,7 @@ module.exports = function(data, models, validation) {
                     res.json({ error: 'Add reservation failed' });
                     res.status(500).end();
                 });
-            res.redirect('/');
+            res.redirect('/reservation');
         },
         getReservation(req, res) {
             const result = isAuth(req, {});

@@ -1,7 +1,19 @@
 extends ../_layout
 
 block content
-  if result.user
+  if result.user 
+    if result.user.role
+      #reservations
+        ul
+          each reservation in reservations
+            li
+              h1 Name:
+                =reservation._people
+              h2 Place:
+                =reservation._place
+              h2 Time:
+                =reservation._time
+    else
     button.btn.btn-primary(type='button', onclick='myFunction()') Create Reservation
     #myDIV(style='display: none;')
       .container
@@ -21,25 +33,7 @@ block content
                   .form-group
                     input#time.form-control.input-sm(type='text', name='time', placeholder='Time(hh:mm)')
                   input.btn.btn-info.btn-block(type='submit', value='Make')
-    #reservations
-      ul
-        each reservation in reservations
-          li
-            h1 Name:
-              =reservation._people
-            h2 Place:
-              =reservation._place
-            h2 Time:
-              =reservation._time
+   
   else
-    #reservations
-      ul
-        each reservation in reservations
-          li
-            h1 People:
-              =reservation._people
-            h2 Place:
-              =reservation._place
-            h2 Time:
-              =reservation._time
+    h1 Please Log In in order to make a reservation.
   script(src="./static/scripts/event-form.js")
