@@ -43,7 +43,7 @@ module.exports = function(data, models, validation) {
 
             const result = isAuth(req, {});
             result.title = 'Profile';
-            data.getUsers({ username: result.user })
+            data.getUsers({ username: result.user.username })
                 .then((users) => {
                     const user = users[0];
                     result.firstname = user._firstname;
@@ -67,7 +67,7 @@ module.exports = function(data, models, validation) {
             const lastname = req.body.lastname;
             const email = req.body.email;
 
-            data.getUsers({ username: result.user })
+            data.getUsers({ username: result.user.username })
             .then((users) => {
                     const user = users[0];
                     user._firstname = firstname;

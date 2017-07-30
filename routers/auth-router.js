@@ -19,8 +19,8 @@ module.exports = function(app, data, models, validation) {
         .get('/profile', controller.getProfile)
         .get('/profile', controller.getProfile)
         .post('/profile', (req, res) => res.redirect('/profile-change'))
-        .get('/change-profile', controller.getModifyProfilePage)
-        .post('/change-profile', controller.changeProfilePage)
+        .get('/profile-change', controller.getModifyProfilePage)
+        .post('/profile-change', controller.changeProfilePage)
         .get('/logout', controller.logout)
     app.use('/', router);
 };

@@ -7,7 +7,7 @@ block content
   .container
     .col-md-5.col-md-offset-3
       .panel.panel-default
-        .panel-heading Profile of !{result.user}
+        .panel-heading Profile of !{result.user.username}
         .panel-body
           form(method='post')
             div Name: !{result.firstname} !{result.lastname}
