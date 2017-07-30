@@ -8,8 +8,5 @@ module.exports = function(app, data, models, validation) {
 
     router
         .get('/', controller.getHome)
-        .get('/events', controller.getEvents)
-        .get('/events', controller.getEvents)
-
     app.use('/', router);
 };
