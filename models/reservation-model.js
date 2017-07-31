@@ -1,6 +1,7 @@
 module.exports = function() {
     class Reservation {
-        constructor(people, place, time,name,number) {
+        constructor(people, place, time,name,number,date) {
+            this.date=date;
             this.people = people;
             this.place = place;
             this.time = time;
@@ -8,7 +9,13 @@ module.exports = function() {
             this.name=name;
 
         }
+        get date() {
+            return this._date;
+        }
 
+        set date(value) {
+            this._date = value;
+        }
         get people() {
             return this._people;
         }
@@ -50,8 +57,8 @@ module.exports = function() {
     }
 
     return {
-        getReservation(people, place, time,name,number) {
-            return new Reservation(people, place, time,name,number);
+        getReservation(people, place, time,name,number,date) {
+            return new Reservation(people, place, time,name,number,date);
         },
     };
 };
