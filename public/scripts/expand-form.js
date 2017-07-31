@@ -1,3 +1,8 @@
+socket.on('new-reservation', function(reservation) {
+        myFunction();
+
+});
+
 function myFunction() {
     var x = document.getElementById('myDIV');
     if (x.style.display === 'none') {

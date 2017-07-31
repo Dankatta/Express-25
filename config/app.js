@@ -1,4 +1,5 @@
-const express = require('express');
+const express = require('express')
+    ,toastr = require('express-toastr');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -6,7 +7,11 @@ const bodyParser = require('body-parser');
 
 module.exports = function(data) {
     const app = express();
-
+    app.use(require('connect-flash')());
+    app.use((req, res, next) => {
+        res.locals.messages = require('express-messages')(req, res);
+        next();
+    });
 
     app.set('view engine', 'pug');
 

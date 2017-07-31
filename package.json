@@ -39,6 +39,9 @@
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
-    "pug": "^2.0.0-rc.2"
+    "pug": "^2.0.0-rc.2",
+    "socket.io": "2.0.3",
+    "connect-flash": "^0.1.1",
+    "express-messages": "^1.0.1"
   }
 }

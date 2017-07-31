@@ -75,12 +75,17 @@ module.exports = function(data, models, validation) {
                     user._email = email;
                     data.updateUser(user);
                 res.redirect('/');
-            });
+            })
+                .catch((err) => {
+                    req.flash('error', err);
+                    return res.redirect('/');
+                });
 
         },
         logout(req, res) {
             req.logout();
             res.status(200).redirect('/');
+            req.toastr.success('Successfully logged in.', "You're in!");
         },
     };
 };
