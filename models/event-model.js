@@ -1,10 +1,11 @@
 module.exports = function() {
     class Event {
-        constructor(title, place, time, description) {
+        constructor(title, place, time, description,date) {
             this.title = title;
             this.place = place;
             this.time = time;
             this.description = description;
+            this.date=date;
         }
 
         get title() {
@@ -13,6 +14,13 @@ module.exports = function() {
 
         set title(value) {
             this._title = value;
+        }
+        get date() {
+            return this._date;
+        }
+
+        set date(value) {
+            this._date = value;
         }
 
         get place() {
@@ -41,8 +49,8 @@ module.exports = function() {
     }
 
     return {
-        getEvent(title, place, time, description) {
-            return new Event(title, place, time, description);
+        getEvent(title, place, time, description,date) {
+            return new Event(title, place, time, description,date);
         },
     };
 };

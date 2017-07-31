@@ -13,7 +13,8 @@ module.exports = function(data, models, validation) {
                 req.body.place,
                 req.body.time,
                 req.body.name,
-                req.body.number
+                req.body.number,
+                req.body.date
 
             );
 

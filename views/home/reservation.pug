@@ -13,6 +13,8 @@ block content
                 =reservation._place
               h2 Time:
                 =reservation._time
+              h2 Date:
+                =reservation._date  
               h2 Name:
                 =reservation._name
               h2 Phone Number:
@@ -41,6 +43,8 @@ block content
                     input#people.form-control.input-sm(type='text', name='number', placeholder='Phone number')
                   .form-group
                     input#time.form-control.input-sm(type='text', name='time', placeholder='Time(hh:mm)')
+                  .form-group
+                    input#time.form-control.input-sm(type='text', name='date', placeholder='Date')
                   input.btn.btn-info.btn-block(type='submit', value='Make')
    
   else

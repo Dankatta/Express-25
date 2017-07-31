@@ -12,7 +12,8 @@ module.exports = function(data, models, validation) {
                 req.body.title,
                 req.body.place,
                 req.body.time,
-                req.body.description
+                req.body.description,
+                req.body.date
             );
 
             data.createEvent(event)

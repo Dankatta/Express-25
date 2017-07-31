@@ -20,31 +20,37 @@ block content
                                         .form-group
                                             input#time.form-control.input-sm(type='text', name='time', placeholder='Time')
                                         .form-group
+                                            input#time.form-control.input-sm(type='text', name='date', placeholder='Date')
+                                        .form-group
                                             input#description.form-control.input-sm(type='text', name='description', placeholder='Description')
                                         input.btn.btn-info.btn-block(type='submit', value='Add')
         #Events
             ul
                 each event in events
                     li
-                        h1 Name:
+                        h1
                             =event._title
                         h2 Place:
                             =event._place
                         h2 Time:
                             =event._time
-                        h2 Description:
+                        h2 Date:
+                            =event._date
+                        h2 
                             =event._description
     else
         #Events
             ul
                 each event in events
-                    li
-                        h1 Name:
+                    li  
+                        h1
                             =event._title
                         h2 Place:
                             =event._place
                         h2 Time:
                             =event._time
-                        h2 Description:
+                        h2 Date:
+                            =event._date
+                        h2 
                             =event._description
     script(src="./static/scripts/expand-form.js")
