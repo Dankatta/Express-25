@@ -38,7 +38,8 @@ module.exports = function(data, models, validation) {
         },
         getProfile(req, res) {
             if (!req.isAuthenticated()) {
-                res.redirect('/unauthorized');
+                //res.redirect('/unauthorized');
+                res.redirect('/');
             }
 
             const result = isAuth(req, {});
@@ -59,7 +60,8 @@ module.exports = function(data, models, validation) {
         },
         changeProfilePage(req, res) {
             if (!req.isAuthenticated()) {
-                res.redirect('/unauthorized');
+                res.redirect('/');
+                //res.redirect('/unauthorized');
             }
 
             const result = isAuth(req, {});
